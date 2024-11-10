@@ -1,0 +1,126 @@
+/* General container styling */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Form heading */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Input fields (email, password, role, standard, roll number) */
+.login-container input[type="email"],
+.login-container input[type="password"],
+.login-container input[type="text"], /* added text input for roll no */
+.login-container select {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* Input focus effect for all input fields and select dropdowns */
+.login-container input[type="email"]:focus,
+.login-container input[type="password"]:focus,
+.login-container input[type="text"]:focus, /* added focus for text input */
+.login-container select:focus {
+  border-color: #4285f4; /* Google's signature blue */
+  outline: none;
+  box-shadow: 0 0 5px rgba(66, 133, 244, 0.4);
+}
+
+/* Submit button */
+.login-container button {
+  width: 100%;
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Submit button hover effect */
+.login-container button:hover {
+  background-color: #357ae8;
+}
+
+/* Labels for inputs */
+.login-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* General form layout */
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Additional styling for select dropdowns (role, standard, rollNo) */
+.login-container select {
+  font-size: 14px;
+  color: #555;
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Roll No specific styles */
+.login-container input[type="text"] {
+  font-size: 14px;
+  color: #555;
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Center the navigation buttons */
+.but, .nav-button {
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Optional: Style for each individual select dropdown (standard, rollNo) */
+.login-container .standard-select,
+.login-container .rollno-select {
+  margin-top: 10px;
+}
+
+/* Styling for the Admin Dashboard link */
+.admin-dashboard-link {
+  position: absolute;
+  bottom: 20px; /* 20px from the bottom */
+  right: 20px; /* 20px from the right */
+}
+
+.admin-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.admin-link:hover {
+  text-decoration: underline;
+}

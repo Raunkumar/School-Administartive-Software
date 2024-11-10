@@ -1,0 +1,46 @@
+.timetable-section {
+    max-width: 800px; /* Set a maximum width for the timetable */
+    margin: 0 auto; /* Center the section */
+    padding: 20px; /* Add padding */
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .timetable-section h2 {
+    text-align: center; /* Center the main title */
+    color: #333; /* Dark text color */
+  }
+  
+  .day-timetable {
+    margin-bottom: 20px; /* Space between days */
+  }
+  
+  .day-timetable h3 {
+    color: #007BFF; /* Blue color for day headings */
+  }
+  
+  .class-entry {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between time and subject */
+    padding: 10px; /* Padding for each class entry */
+    border-bottom: 1px solid #ddd; /* Bottom border */
+  }
+  
+  .class-entry:last-child {
+    border-bottom: none; /* Remove bottom border from last entry */
+  }
+  
+  .break {
+    background-color: #ffeb3b; /* Highlight breaks with a different color */
+    font-weight: bold; /* Bold text for breaks */
+  }
+  
+  .class-time {
+    color: #555; /* Gray color for time */
+  }
+  
+  .class-subject {
+    color: #333; /* Dark color for subject */
+  }
+  

@@ -1,0 +1,60 @@
+.attendance-section {
+    max-width: 600px; /* Set a maximum width for the attendance section */
+    margin: 0 auto; /* Center the section */
+    padding: 20px; /* Add padding */
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .attendance-section h2 {
+    color: #333; /* Dark text color */
+  }
+  
+  .student-entry {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-bottom: 10px; /* Space between entries */
+  }
+  
+  .student-entry input[type="text"] {
+    flex-grow: 1; /* Allow the input to grow */
+    padding: 8px; /* Add padding to the input */
+    border: 1px solid #ccc; /* Border for input */
+    border-radius: 4px; /* Rounded corners */
+    margin-right: 10px; /* Space between input and checkbox */
+  }
+  
+  .student-entry label {
+    display: flex;
+    align-items: center; /* Align checkbox with label */
+  }
+  
+  button {
+    margin-top: 10px; /* Space above buttons */
+    padding: 10px 15px; /* Padding for buttons */
+    background-color: #007BFF; /* Button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  .submit{
+    margin-left: 10px;
+  }
+
+  button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+  ul {
+    margin-top: 20px; /* Space above the list */
+    padding-left: 20px; /* Indent the list */
+  }
+  
+  li {
+    margin-bottom: 5px; /* Space between list items */
+  }
+  
