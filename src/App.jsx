@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'; // Import necessary components
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'; //Import necessary components
 import LoginPage from './Component/Loginpage.jsx'; // Adjust the casing of component names to match file names
 import SignupPage from './Component/SignupPage';
 import HomePage from './Component/HomePage'; // Ensure you create this component
@@ -28,8 +28,8 @@ function App() {
             <Route path='/Timetable' element={<Timetable />} />
             <Route path='/Announcements' element={<Announcements />} />
             <Route path='/calendar' element={<CalendarEvents />} />
-             <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
-             <Route path='/admin-login' element={<AdminLoginPage/>}/>
+            <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
+            <Route path='/admin-login' element={<AdminLoginPage/>}/>
           </Routes>
         </div>
       </div>

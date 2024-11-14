@@ -23,7 +23,10 @@ function SignupPage() {
             setAvailableRollNos(data.rollNos);
           }
         })
-        .catch((error) => console.error('Error fetching roll numbers:', error));
+        .catch((error) => {
+          console.error('Error fetching roll numbers:', error);
+          alert('Error fetching roll numbers. Please try again.');
+        });
     }
   }, [standard]);
 
@@ -37,7 +40,7 @@ function SignupPage() {
       return;
     }
 
-    // Check if the entered roll number is valid
+    // Check if the entered roll number is valid for students
     if (role === 'student' && !availableRollNos.includes(rollNo)) {
       alert('Invalid roll number for this standard!');
       return;

@@ -118,13 +118,19 @@ app.post('/signup', async (req, res) => {
   // For students, validate the standard and rollNo
   if (role === 'student') {
     try {
+      // 1. Find the Standard document for the given standard
       const standardRecord = await Standard.findOne({ standard });
 
-      if (!standardRecord || !standardRecord.rollNos.includes(rollNo)) {
+      if (!standardRecord) {
+        return res.status(400).json({ error: 'Standard not found' });
+      }
+
+      // 2. Check if the rollNo is valid for the given standard
+      if (!standardRecord.rollNos.includes(rollNo)) {
         return res.status(400).json({ error: 'Invalid roll number for this standard' });
       }
 
-      // Check if roll number is already used for this standard
+      // 3. Check if the roll number is already used for this standard
       const existingUser = await User.findOne({ rollNo, standard });
       if (existingUser) {
         return res.status(400).json({ error: 'Roll number already used for this standard' });
@@ -182,6 +188,25 @@ app.post('/signup', async (req, res) => {
   }
 });
 
+// Endpoint to get roll numbers for a specific standard
+app.get('/standard-rollnos/:standard', async (req, res) => {
+  const { standard } = req.params;
+
+  try {
+    // Find the Standard document for the given standard
+    const standardRecord = await Standard.findOne({ standard });
+
+    if (!standardRecord) {
+      return res.status(404).json({ error: 'Standard not found' });
+    }
+
+    res.json({ rollNos: standardRecord.rollNos });
+  } catch (err) {
+    console.error('Error fetching roll numbers:', err);
+    res.status(500).json({ error: 'Error fetching roll numbers' });
+  }
+});
+
 // Admin routes
 
 // Endpoint to get all teachers with 'pending' status
@@ -210,29 +235,23 @@ app.patch('/approve-teacher/:email', async (req, res) => {
   }
 
   try {
-    const user = await User.findOne({ email, role: 'teacher' });
+    const teacher = await User.findOne({ email, role: 'teacher' });
 
-    if (!user) {
-      return res.status(404).json({ error: 'Teacher not found.' });
+    if (!teacher) {
+      return res.status(404).json({ error: 'Teacher not found' });
     }
 
-    // If the action is to approve, set the status to 'active'
-    if (action === 'approve') {
-      user.status = 'active';
-    } else if (action === 'deny') {
-      user.status = 'denied';  // You can set this to 'pending' or just delete if needed
-    }
+    teacher.status = action === 'approve' ? 'active' : 'denied';
+    await teacher.save();
 
-    await user.save();  // Save the updated user
-
-    res.json({ message: `Teacher's account ${action === 'approve' ? 'approved' : 'denied'}` });
+    res.json({ message: `Teacher ${action === 'approve' ? 'approved' : 'denied'} successfully.` });
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ error: 'Error approving/denying teacher' });
+    console.error('Error approving/denying teacher:', err);
+    res.status(500).json({ error: 'Error processing teacher approval action' });
   }
 });
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server running on http://localhost:${port}`);
 });
