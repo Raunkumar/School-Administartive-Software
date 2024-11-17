@@ -26,9 +26,22 @@ function LoginPage() {
       const data = await response.json();
 
       if (response.ok) {
-        // On successful login, alert the user and navigate to the home page (or dashboard)
+        // On successful login, store the user data in localStorage
+        localStorage.setItem('user', JSON.stringify({
+          name: data.user.name,
+          rollNo: data.user.rollNo,
+          standard: data.user.standard,
+          email: data.user.email,
+        }));
+
         alert('Login successful');
-        navigate('/home'); // Redirect to the home page (or another page like "/dashboard")
+        
+        // Navigate based on the role
+        if (role === 'student') {
+          navigate('/home'); // Redirect to the student home page
+        } else if (role === 'teacher') {
+          navigate('/teacher-home'); // Redirect to the teacher home page
+        }
       } else {
         // If there is an error (e.g., wrong credentials), display it
         alert(data.error || 'Something went wrong!');
@@ -93,7 +106,7 @@ function LoginPage() {
         <button onClick={() => navigate('/signup')}>Go to Signup</button>
       </div>
 
-      {/* Link to navigate to the Admin Dashboard with onClick event */}
+      {/* Link to navigate to the Admin Dashboard */}
       <div className="admin-dashboard-link">
         <a
           href="#"

@@ -1,0 +1,50 @@
+/* HomePage.css */
+
+.home-page {
+    display: flex; /* Use flexbox to layout the navbar and content */
+  }
+  
+  .home-content {
+    flex: 1; /* Allow content to take up remaining space */
+    padding: 2rem; /* Add padding to the content area */
+  }
+  
+  .home {
+    padding: 20px;
+    background-image: none;
+    background-color: #f5f5f5; /* Light background color */
+  }
+  
+  .home-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  
+  .announcements, .upcoming-events, .about-school, .gallery {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: white; /* White background for sections */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  h2 {
+    color: #333; /* Dark color for section titles */
+  }
+  
+  .gallery-images {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .gallery-images img {
+    width: 30%; /* Width for each image */
+    border-radius: 8px; /* Rounded corners for images */
+  }
+  
+  .home-footer {
+    text-align: center;
+    margin-top: 40px;
+  }
+  

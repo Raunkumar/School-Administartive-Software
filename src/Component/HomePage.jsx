@@ -8,7 +8,7 @@ const HomePage = () => {
       <AdminNavbar /> {/* Include the Admin Navbar */}
       <div className="home">
       <header className="home-header">
-        <h1>Welcome to AAA School</h1>
+        <h1>Welcome to AAA HighSchool</h1>
         <p>Empowering students through knowledge and creativity.</p>
       </header>
 

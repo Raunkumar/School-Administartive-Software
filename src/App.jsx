@@ -11,6 +11,9 @@ import Announcements from './Component/Announcements.jsx';
 import CalendarEvents from './Component/CalendarEvents.jsx';
 import AdminDashboard from './Component/AdminDashboard.jsx';
 import AdminLoginPage from './Component/AdminLoginPage.jsx';
+import TeacherHomePage from './Component/TeacherHomePage.jsx';
+import TeacherAttendance from './Component/TeacherAttendance.jsx';
+import Profile from './Component/Profile.jsx';
 
 
 function App() {
@@ -30,6 +33,9 @@ function App() {
             <Route path='/calendar' element={<CalendarEvents />} />
             <Route path='/admin-dashboard' element={<AdminDashboard/>}/>
             <Route path='/admin-login' element={<AdminLoginPage/>}/>
+            <Route path='/teacher-home' element={<TeacherHomePage/>}/>
+            <Route path='/TeacherAttendance' element={<TeacherAttendance/>}/>
+            <Route path='/profile' element={<Profile/>}/>
           </Routes>
         </div>
       </div>

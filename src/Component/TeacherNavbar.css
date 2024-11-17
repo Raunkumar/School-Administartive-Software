@@ -1,0 +1,58 @@
+.admin-navbar {
+  
+    /* Set the width of the navbar */
+   
+   padding: 1rem; /* Padding around the navbar */
+   
+   display: flex;
+   flex-direction: column; /* Stack items vertically */
+   position: relative; /* Allow absolute positioning for the menu */
+ }
+ 
+ .admin-header {
+   display: flex;
+   align-items: center; /* Center vertically */
+   cursor: pointer; /* Pointer cursor on hover */
+ }
+ 
+ .hamburger {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin-right: 10px; /* Space between hamburger and text */
+ }
+ 
+ .bar {
+   width: 25px; /* Width of the bars */
+   height: 3px; /* Height of the bars */
+   background-color: #333; /* Color of the bars */
+   margin: 3px 0; /* Space between bars */
+   transition: all 0.3s; /* Smooth transition */
+ }
+ 
+ .bar.open {
+   background-color: #007BFF; /* Change color when open */
+ }
+ 
+ .admin-navbar-links {
+   width: 180px;
+   background-color: #fcefef; /* Light background color */
+   list-style: none; /* Remove bullet points */
+   margin-top: 20px; /* Space above links */
+ }
+ 
+ .admin-navbar-links li {
+   margin: 3rem 0; /* Spacing between items */
+ }
+ 
+ .admin-navbar-links a {
+   text-decoration: none; /* Remove underline */
+   color: #333; /* Dark text color */
+   font-size: 1.2rem; /* Font size */
+   transition: color 0.3s; /* Smooth transition for hover effect */
+ }
+ 
+ .admin-navbar-links a:hover {
+   color: #007BFF; /* Change color on hover */
+ }
+ 

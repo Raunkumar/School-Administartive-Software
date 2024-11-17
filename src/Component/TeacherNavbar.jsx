@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
-import './AdminNavbar.css';
+import './TeacherNavbar.css';
 import About from './About';
 
 
@@ -23,14 +23,11 @@ const AdminNavbar = () => {
       </div>
       {isOpen && (
         <ul className="admin-navbar-links">
-          <li><Link to="/home">Home</Link></li>
-          <li><Link to="/Attendance">Attendance</Link></li>
+          <li><Link to="/teacher-home">Home</Link></li>
+          <li><Link to="/TeacherAttendance">Attendance</Link></li>
           <li><Link to="/About" >About</Link></li>
-          <li><Link to="/Subjects">Subjects</Link></li>
-          <li><Link to="/Timetable">Time Table</Link></li>
           <li><Link to="/Announcements">Announcement</Link></li>
           <li><Link to="/calendar">Calendar</Link></li>
-          <li><Link to="/profile">profile</Link></li>
           <li><Link to="/">Logout</Link></li>
         </ul>
       )}

@@ -1,3 +1,4 @@
+require('dotenv').config(); // Import the environment variables
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -13,7 +14,7 @@ app.use(cors());
 app.use(bodyParser.json()); // Use bodyParser.json() to parse JSON requests
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/login-app')
+mongoose.connect(process.env.MONGO_URI) // Using environment variable
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Failed to connect to MongoDB', err));
 
@@ -39,7 +40,6 @@ const userSchema = new mongoose.Schema({
   status: { type: String, default: 'pending' }, // Teacher status (pending or active)
 });
 
-// Mongoose pre-save middleware to conditionally validate standard and rollNo for students
 userSchema.pre('save', function(next) {
   if (this.role === 'student') {
     if (!this.standard || !this.rollNo) {
@@ -55,11 +55,10 @@ const User = mongoose.model('User', userSchema);
 const transporter = nodemailer.createTransport({
   service: 'gmail', // Use Gmail service
   auth: {
-    user: 'arunkumar.rm8123@gmail.com', // Admin email
-    pass: 'wava ruvn ffal eqwh', // App password for Gmail (NOT regular password)
+    user: process.env.GMAIL_USER, // Admin email from environment variable
+    pass: process.env.GMAIL_PASSWORD, // App password for Gmail (NOT regular password)
   },
 });
-
 // Endpoint to handle login
 app.post('/login', async (req, res) => {
   console.log('Login request received');
@@ -164,8 +163,8 @@ app.post('/signup', async (req, res) => {
     // If the role is 'teacher', send an email to the admin
     if (role === 'teacher') {
       const mailOptions = {
-        from: 'arunkumar.rm8123@gmail.com',  // Admin's email
-        to: 'arunkumar.rm8123@gmail.com',    // Admin's email
+        from: process.env.GMAIL_USER,  // Admin's email from environment variable
+        to: process.env.GMAIL_USER,    // Admin's email from environment variable
         subject: 'New Teacher Signup - Pending Approval',
         text: `A new teacher has signed up with email: ${email}. Please review the request and approve or deny access.`
       };
@@ -255,3 +254,7 @@ app.patch('/approve-teacher/:email', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+ 
+
+
+
